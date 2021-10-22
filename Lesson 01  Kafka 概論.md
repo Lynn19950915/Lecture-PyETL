@@ -1,40 +1,35 @@
-### <center>Lecture 01: Kafka 概論</center>
+## Lesson 02 資訊流(1)
 
----
-#### 1-1  導論
+### 2-1 輸入源
+1. 由 producer 負責，需言明 topic 及 (至少一台) broker 方可匯入資料。
 
+2. 資料為逐筆寫入，以字典 (key-value) 方式寫入。在不中途更動 partition 之下，key 能確保儲入同份 partition。<br>
+例: 寫入一筆紀錄 (record) 時，topic, broker 及 value 為必需提供；key 及 partition 則非必要。
+
+3. 輸入模式 acks=<br>
+- \-1，等待所有叢集之回應，具備高完整性。<br>
+- 0，不等待任何機台回應，具備高度效率。<br>
+- +1，待 partition leader 回應，折衷作法。
+
+4. Kafka 簡介
 - 資料在寫入、讀取間，如果發生端口的故障將會導致損失；Kafka 即是扮演`中繼的暫存角色`。
-- 因此，它本身並`不負責運算及長期儲存`（非資料庫），而是做為訊息收／發的一個中繼傳輸點。
+- 因此，它本身並`不負責運算及長期儲存` (非資料庫)，而是做為訊息收／發的一個中繼傳輸點。
 - 常適用於讀寫工作龐雜，且亟需同步化、高可用及延展性的商業運作中。
 
-<div>2. 基本角色</div>
-- 輸入源 (source)：稱為 `producer。負責將資料寫入`，可為 Oracle, PyCharm 等。
-- 輸出槽 (sink)：稱為 `consumer。負責將資料讀出`，可為 PyCharm, ES (elastic-search) 等。
-
-<div>3. 與 HDFS 之比較</div>
-- 均可做 `map reduce`（=partition, 資料分片)，透過平行運算增進處理效率。
-- 均可做 `replication`（資料複製)，確保運作彈性及安全。
-- 同以 `zookeeper` 管理多台叢集，並有 mirror-maker 確保資料的同步。
-- HDFS 之叢集有主 (namenode)、從 (datanode) 之分；Kafka 則在 partition, consumer 安排 leader 角色，前者可以同步各個副本、而後者可協調 partition 的讀取。
-
 ---
-#### 1-2  核心名詞簡介
-<div>1. topic</div>
-- 形如資料庫中的`資料表`，是以 topic-name 作為區別。
-- 由一至多台 broker 組成，即所謂`「多台叢集 (cluster)」`。
+### 2-2 輸出槽
+1. 由 consumer 負責，需言明 topic 及 (至少一台) broker 方可讀出資料。
 
-<div>2. broker</div>
-- `主機伺服器`，可以是實體或虛擬機環境 (server)，以 id 作為區別。
-- 為 topic 之實作對象，連上單一 broker 即可跟所有叢集的機台對接。
-- 由一至多個 partition 所組成，即所謂`「資料分片 (map reduce)」`。
+2. consumer 可組成 group 共同讀取，成員可讀多份 partition，然同一 partition 只會被一成員讀取。<br>
+藉此防範資料拆分，故當成員數 >partition，將導致有 consumer 工作閒置。
 
-<div>3. partition</div>
-- 作資料分散儲存用，為逐筆紀錄 (record) 寫入之處。
-- 限定讀取於不同成員，故 N 份 partition 最多給 N 台 consumer group 讀取。
-- 已寫入者無法變更。確保單一 partition 具備順序及 key 的一致性。
+3. __consumer_offset
+- 用以儲放讀取紀錄 (commit record) 的資料表，是 Kafka 自動建立之 topic。
+- key=[group, topic, partition], value=[offset(工作位置，即最新尚未讀取部分)]。
+- 以 group 為單位，故群組成員之增減雖導致 rebalance (再平衡)，但不影響整體讀取工作。
+- topic+partition 確保訊息的寫入與讀出均合乎順序(FIFO, first-in first-out)。
 
-<div>4. replication</div>
-- 作資料複製備份用，為異地備源保存之處。
-- 限定實作於不同機台，故 N 台叢集 (cluster) 最多能有 N 份 replication。
-例：一5 brokers 叢集，最多可設置 R.F.=5（即各 broker 都具其他台之複製備份）
-若設定 R.F.=3，則可容許 5-3 台 broker 發生離線或故障，藉此提升運作彈性。
+4.讀取模式<br>
+- <1，當資料傳出便記錄，無法確保 consumer 讀取。<br>
+- =1，資料送達時即記錄，確保資料恰被讀取一次。<br>
+- >1，資料讀取後才記錄，資料有可能被重複讀取。
