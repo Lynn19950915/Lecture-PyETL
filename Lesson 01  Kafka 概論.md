@@ -1,4 +1,4 @@
-### <center>Lecture 01: Kafka 概論
+### <center>Lecture 01: Kafka 概論</center>
 
 ---
 #### 1-1  導論
