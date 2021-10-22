@@ -2,16 +2,16 @@
 
 ---
 #### 1-1  導論
-<div>1. Kafka 簡介
+<div>1. Kafka 簡介</div>
 - 資料在寫入、讀取間，如果發生端口的故障將會導致損失；Kafka 即是扮演`中繼的暫存角色`。
 - 因此，它本身並`不負責運算及長期儲存`（非資料庫），而是做為訊息收／發的一個中繼傳輸點。
 - 常適用於讀寫工作龐雜，且亟需同步化、高可用及延展性的商業運作中。
 
-<div>2. 基本角色
+<div>2. 基本角色</div>
 - 輸入源 (source)：稱為 `producer。負責將資料寫入`，可為 Oracle, PyCharm 等。
 - 輸出槽 (sink)：稱為 `consumer。負責將資料讀出`，可為 PyCharm, ES (elastic-search) 等。
 
-<div>3. 與 HDFS 之比較
+<div>3. 與 HDFS 之比較</div>
 - 均可做 `map reduce`（=partition, 資料分片)，透過平行運算增進處理效率。
 - 均可做 `replication`（資料複製)，確保運作彈性及安全。
 - 同以 `zookeeper` 管理多台叢集，並有 mirror-maker 確保資料的同步。
@@ -19,21 +19,21 @@
 
 ---
 #### 1-2  核心名詞簡介
-<div>1. topic
+<div>1. topic</div>
 - 形如資料庫中的`資料表`，是以 topic-name 作為區別。
 - 由一至多台 broker 組成，即所謂`「多台叢集 (cluster)」`。
 
-<div>2. broker
+<div>2. broker</div>
 - `主機伺服器`，可以是實體或虛擬機環境 (server)，以 id 作為區別。
 - 為 topic 之實作對象，連上單一 broker 即可跟所有叢集的機台對接。
 - 由一至多個 partition 所組成，即所謂`「資料分片 (map reduce)」`。
 
-<div>3. partition
+<div>3. partition</div>
 - 作資料分散儲存用，為逐筆紀錄 (record) 寫入之處。
 - 限定讀取於不同成員，故 N 份 partition 最多給 N 台 consumer group 讀取。
 - 已寫入者無法變更。確保單一 partition 具備順序及 key 的一致性。
 
-<div>4. replication
+<div>4. replication</div>
 - 作資料複製備份用，為異地備源保存之處。
 - 限定實作於不同機台，故 N 台叢集 (cluster) 最多能有 N 份 replication。
 例：一5 brokers 叢集，最多可設置 R.F.=5（即各 broker 都具其他台之複製備份）
