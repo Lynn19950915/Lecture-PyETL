@@ -1,7 +1,7 @@
 <h2 align="center">Appendix C: json 爬蟲</h2>
 
 - Sample C1
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 import json
@@ -21,7 +21,7 @@ for item in jslist:
 <br/>
 
 - Sample C2: #Dcard 攝影版
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 import json
@@ -58,7 +58,7 @@ article.to_excel("C:/PyETL/Dcard攝影版.xls", encoding="utf-8")
 <br/>
 
 - Sample C3: #Weather API
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 import json

@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 03: 標籤定位與文字查取</h2>
 
 - Sample 09: "標籤", 屬性="值"
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -21,7 +21,7 @@ print(target2)
 <br/>
 
 - Sample 10: "標籤", {"屬性":"值"}
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -41,7 +41,7 @@ print(target4)
 <br/>
 
 - Sample 11: "標籤\[屬性='值']"
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -61,7 +61,7 @@ print(target6)
 <br/>
 
 - Sample 12: 標籤子查詢
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -85,7 +85,7 @@ print(subque2)
 <br/>
 
 - Sample 13: 內容子查詢
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -111,7 +111,7 @@ print(subque4)
 <br/>
 
 - Sample 14: 屬性子查詢
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}

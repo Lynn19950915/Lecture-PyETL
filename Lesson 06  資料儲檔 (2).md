@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 06: 資料儲檔 (2)</h2>
 
 - Sample 24: Pandas
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -34,7 +34,7 @@ print(data)
 <br/>
 
 - Sample 25: Pandas+csv 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -74,7 +74,7 @@ data.to_csv("%s/CSV.csv"%(dir), encoding="utf-8")
 <br/>
 
 - Sample 26: Pandas+xls 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -115,7 +115,7 @@ data.to_csv("%s/XLS.xls"%(dir), encoding="utf-8")
 <br/>
 
 - Sample 27: Pandas+xlsx 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 

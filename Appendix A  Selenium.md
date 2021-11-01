@@ -1,7 +1,7 @@
 <h2 align="center">Appendix A: Selenium</h2>
 
 - Sample A1: get
-```
+```python
 # 需先安裝 selenium 及下載 Chrome driver
 from selenium.webdriver import Chrome
 driver=Chrome("./chromedriver")
@@ -13,7 +13,7 @@ driver.get(url)
 <br/>
 
 - Sample A2: find, click
-```
+```python
 from selenium.webdriver import Chrome
 driver=Chrome("./chromedriver")
 url="https://www.ptt.cc/bbs/index.html"
@@ -27,7 +27,7 @@ driver.find_element_by_class_name("btn-big").click()
 <br/>
 
 - Sample A3: cookies
-```
+```python
 from selenium.webdriver import Chrome
 driver=Chrome("./chromedriver")
 url="https://www.ptt.cc/bbs/index.html"
@@ -44,7 +44,7 @@ for item in cookies:
 <br/>
 
 - Sample A4
-```
+```python
 from selenium.webdriver import Chrome
 import requests
 from bs4 import BeautifulSoup

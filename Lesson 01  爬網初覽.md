@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 01: 爬網初覽</h2>
 
 - Sample 01
-```
+```python
 # 引入 request (不可只寫 import urllib)
 from urllib import request
 
@@ -14,7 +14,7 @@ print(res.read())
 <br/>
 
 - Sample 02: decode("utf-8")
-```
+```python
 # 引入 request (不可只寫 import urllib)
 from urllib import request
 
@@ -27,7 +27,7 @@ print(res.read().decode("utf-8"))
 <br/>
 
 - Sample 03: BeautifulSoup("html.parser")
-```
+```python
 # 引入 request (不可只寫 import urllib)
 from urllib import request
 # 引入 BeautifulSoup (不可只寫 import bs4)

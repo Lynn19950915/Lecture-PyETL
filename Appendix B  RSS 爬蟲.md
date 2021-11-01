@@ -1,7 +1,7 @@
 <h2 align="center">Appendix B: RSS 爬蟲</h2>
 
 - Sample B1
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 headers={"User-Agent":"***"}
@@ -17,7 +17,7 @@ print(soup)
 <br/>
 
 - Sample B2: #公視新聞稿
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -51,7 +51,7 @@ article.to_excel("C:/PyETL/公視新聞稿.xls", encoding="utf-8")
 <br/>
 
 - Sample B3: #BBC 中文網國際新聞版
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 

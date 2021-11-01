@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 02: headers, Cookies 資訊</h2>
 
 - Sample 04: headers (字典)
-```
+```python
 from urllib import request
 # headers 為字典格式
 headers={"User-Agent":"***"}
@@ -16,7 +16,7 @@ print(res.read().decode("utf-8"))
 <br/>
 
 - Sample 05
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 # headers 為字典格式
@@ -33,7 +33,7 @@ print(soup)
 <br/>
 
 - Sample 06: header requests
-```
+```python
 import requests
 from bs4 import BeautifulSoup
 # headers 為字典格式
@@ -50,7 +50,7 @@ print(soup)
 <br/>
 
 - Sample 07: Cookies
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 # headers, Cookies 為字典格式，寫在同一本
@@ -67,7 +67,7 @@ print(soup)
 <br/>
 
 - Sample 08: Cookies requests
-```
+```python
 import requests
 from bs4 import BeautifulSoup
 # headers, Cookies 為字典格式，分開寫兩本

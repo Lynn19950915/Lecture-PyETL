@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 04: 圖片查取及下載</h2>
 
 - Sample 15
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 # headers, Cookies 為字典格式，寫在同一本
@@ -23,7 +23,7 @@ for item in link:
 <br/>
 
 - Sample 16: re模組：re.search()
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 import re
@@ -47,7 +47,7 @@ for item in link:
 <br/>
 
 - Sample 17: re模組：re.findall()
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 import re
@@ -71,7 +71,7 @@ for item in link:
 <br/>
 
 - Sample 18: urlretrieve
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 # headers, Cookies 為字典格式，寫在同一本

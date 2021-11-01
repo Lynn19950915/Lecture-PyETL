@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 05: 資料儲檔 (1)</h2>
 
 - Sample 19: txt 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -27,7 +27,7 @@ file.close()
 <br/>
 
 - Sample 20: csv 檔：內迴圈
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -58,7 +58,7 @@ file.close()
 <br/>
 
 - Sample 21: csv 檔：雙迴圈
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -99,7 +99,7 @@ file.close()
 <br/>
 
 - Sample 22: xls 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -130,7 +130,7 @@ file.close()
 <br/>
 
 - Sample 23: xlsx 檔
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 

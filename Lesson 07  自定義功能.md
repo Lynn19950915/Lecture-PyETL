@@ -1,7 +1,7 @@
 <h2 align="center">Lesson 07: 自定義功能</h2>
 
 - Sample 28
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -26,7 +26,7 @@ file.close()
 <br/>
 
 - Sample 29: Try/except
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
@@ -61,7 +61,7 @@ for item in target:
 <br/>
 
 - Sample 30
-```
+```python
 from urllib import request
 from bs4 import BeautifulSoup
 
